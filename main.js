@@ -52,12 +52,25 @@ function draw() {
 
     fill("#FF0000");
     stroke("#FF0000");
+    music_1_status = music_1.isPlaying();
+    music_2_status = music_2.isPlaying();
 
     if (scoreLeftWrist > 0.2) {
         circle(leftWristX, leftWristY, 20);
-        song.stop(music_2)
+        song.stop(music_2);
 
-        if (music_1.isPlaying()) {
+        if (music_1_status == false) {
+            song.play(music_1);
+            document.getElementById("song_name").innerHTML = "Song  = Harry Potter Theme Song(Remix)";
+        }
+
+    }
+
+    if (scoreRightWrist > 0.2) {
+        circle(rightWristX, rightWristY, 20);
+        song.stop(music_1);
+
+        if (music2_status == false) {
             song.play(music_1);
             document.getElementById("song_name").innerHTML = "Song  = Harry Potter Theme Song(Remix)";
         }
